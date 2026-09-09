@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_issued_licenses
+    columns:
+      - name: business_id
+        tests:
+          - not_null
+      - name: license_number
+        tests:
+          - not_null
+
+  - name: stg_311_requests
+    columns:
+      - name: request_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_pluto
+    columns:
+      - name: bbl
+        test:
+          - not_null

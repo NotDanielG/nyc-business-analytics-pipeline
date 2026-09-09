@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw_external
+    tables:
+      - name: issued_licenses
+      - name: "311_service_request"
+      - name: pluto

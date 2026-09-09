@@ -1,0 +1,13 @@
+analytics_profile:
+  target: dev
+  outputs:
+    dev:
+      type: redshift
+      host: "{{ env_var('REDSHIFT_WORKGROUP_ENDPOINT') }}"
+      port: "{{ env_var('REDSHIFT_PORT', '5439') | int }}"
+      user: "{{ env_var('REDSHIFT_ADMIN_USERNAME') }}"
+      password: "{{ env_var('REDSHIFT_ADMIN_PASSWORD') }}"
+      dbname: "{{ env_var('REDSHIFT_DATABASE_NAME') }}"
+      schema: public
+      threads: 4
+      sslmode: require

@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: mart_business_density_by_zip
+    columns:
+      - name: zip_code
+        tests:
+          - not_null
+
+  - name: mart_complaints_by_zip
+    columns:
+      - name: zip_code
+        tests:
+          - not_null
+
+  - name: mart_business_complaint_per_zip
+    columns:
+      - name: zip_code
+        tests:
+          - not_null
+
+  - name: mart_resident_units
+    columns:
+      - name: zip_code
+        test:
+          - not_null
+
+  - name: mart_business_complaint_by_land_value
+    columns:
+      - name: zip_code
+        test:
+          - not_null
