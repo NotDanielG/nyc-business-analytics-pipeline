@@ -19,21 +19,22 @@ An end-to-end ELT pipeline that ingests NYC Open Data (business licenses, 311 se
 
 ## Tech stack
 
-Terraform - deploys AWS resources/services (S3, Redshift, IAM, Glue, VPC)
-Apache Airflow - Orchestrates extraction, Glue and Redshift data ingestion
-Docker/Docker Compose - containerization of Airflow and dbt
-Redshift - Data warehouse for raw and dbt staging/mart models
-dbt - Data transformation (staging/mart layers)
+- Terraform - deploys AWS resources/services (S3, Redshift, IAM, Glue, VPC)
+- Apache Airflow - Orchestrates extraction, Glue and Redshift data ingestion
+- Docker/Docker Compose - containerization of Airflow and dbt
+- Redshift - Data warehouse for raw and dbt staging/mart models
+- dbt - Data transformation (staging/mart layers)
 
 
 ## Project structure
 
 ```
-terraform/    All AWS infrastructure (S3, IAM, Redshift Serverless, Glue, VPC)
-extract/      Python extraction script + per-dataset config + local env vars
-dags/         Airflow DAG orchestrating extraction, verification, transformation
-dbt/          Staging + mart SQL models, run against Redshift
-Dockerfile    Custom Airflow image (extraction deps + isolated dbt environment)
+terraform/          All AWS infrastructure (S3, IAM, Redshift Serverless, Glue, VPC)
+extract/            Python extraction script + per-dataset config + local env vars
+dags/               Airflow DAG orchestrating extraction, verification, transformation
+dbt/                Staging + mart SQL models, run against Redshift
+docker-compose.yml  Set up Airflow init, scheduler and webserver. Has Postgres server for metadata for Airflow
+Dockerfile          Custom Airflow image (extraction deps + isolated dbt environment)
 ```
 
 ## Setup
