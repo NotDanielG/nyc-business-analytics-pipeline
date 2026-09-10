@@ -1,8 +1,8 @@
 # NYC Business Analytics Pipeline
 
-An end-to-end ELT pipeline that ingests NYC Open Data (business licenses, 311 service requests, PLUTO tax lot data) from the Socrata API, lands it in S3, exposes it to Redshift via schema-on-read (Glue + Spectrum), and transforms it into analysis-ready tables with dbt — fully orchestrated by Airflow, with all infrastructure defined in Terraform.
+An end-to-end ELT pipeline that ingests NYC Open Data (business licenses, 311 service requests, PLUTO tax lot data) from the Socrata API, stores it in S3, exposes it to Redshift via schema-on-read (Glue + Spectrum), and transforms it into analysis-ready tables with dbt. It is fully orchestrated by Airflow, with all infrastructure defined in Terraform.
 
-**The question it answers:** where in NYC do licensed businesses generate the most 311 complaint activity relative to how many businesses are actually there — and is that driven by business density, or by the built environment (building age, zoning) itself?
+**The question it answers:** where in NYC do licensed businesses generate the most 311 complaint activity relative to how many businesses are actually there and is that driven by business density, or by the built environment (building age, zoning, land/lot-value)?
 
 ## Architecture
 
